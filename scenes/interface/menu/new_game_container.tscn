@@ -13,8 +13,11 @@
 outline_size = 1
 font_data = ExtResource( 5 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "Buttons_Moving"
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=3]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -42,7 +45,7 @@ tracks/1/keys = {
 "values": [ Vector2( 148, 14 ), Vector2( 155, 14 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "Frames_Show"
 length = 5.6
 loop = true
@@ -60,11 +63,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ]
 }
 
-[sub_resource type="DynamicFont" id=3]
-size = 8
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 6
 font_data = ExtResource( 5 )
 
@@ -103,6 +102,32 @@ margin_top = -20.0
 margin_right = 80.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 160, 40 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Select" type="Button" parent="Buttons_Container"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -46.5
+margin_right = 37.5
+margin_bottom = -26.5
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons_Container/Select"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Selecionar"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -149,11 +174,11 @@ frame = 27
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 autoplay = "Buttons_Moving"
-anims/Buttons_Moving = SubResource( 2 )
+anims/Buttons_Moving = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Frames_Show"
-anims/Frames_Show = SubResource( 5 )
+anims/Frames_Show = SubResource( 4 )
 
 [node name="Stats_Container" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -175,7 +200,7 @@ margin_top = 7.15816
 margin_right = 119.719
 margin_bottom = 19.1582
 rect_min_size = Vector2( 112, 12 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Classe: Garoto"
 valign = 1
@@ -222,7 +247,7 @@ __meta__ = {
 [node name="Class_Health" type="Label" parent="Stats_Container/Grid"]
 margin_right = 25.0
 margin_bottom = 9.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Vida: 3"
 valign = 1
@@ -234,7 +259,7 @@ __meta__ = {
 margin_left = 37.0
 margin_right = 62.0
 margin_bottom = 9.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Mana: 3"
 valign = 1
@@ -246,7 +271,7 @@ __meta__ = {
 margin_left = 74.0
 margin_right = 99.0
 margin_bottom = 9.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Ataque: 3"
 valign = 1
@@ -258,7 +283,7 @@ __meta__ = {
 margin_top = 15.0
 margin_right = 25.0
 margin_bottom = 24.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Ataque: 3"
 valign = 1
@@ -271,7 +296,7 @@ margin_left = 37.0
 margin_top = 15.0
 margin_right = 62.0
 margin_bottom = 24.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Ataque: 3"
 valign = 1
@@ -284,7 +309,7 @@ margin_left = 74.0
 margin_top = 15.0
 margin_right = 99.0
 margin_bottom = 24.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Ataque: 3"
 valign = 1

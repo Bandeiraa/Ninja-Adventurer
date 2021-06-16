@@ -14,14 +14,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/interface/menu/menu.gd"
 }, {
+"base": "Node",
+"class": "MessejanaCity",
+"language": "GDScript",
+"path": "res://scripts/cities/messejana_city.gd"
+}, {
 "base": "Control",
 "class": "NewGame",
 "language": "GDScript",
 "path": "res://scripts/interface/menu/New_Game_Container.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scripts/player/player.gd"
 } ]
 _global_script_class_icons={
 "Menu": "",
-"NewGame": ""
+"MessejanaCity": "",
+"NewGame": "",
+"Player": ""
 }
 
 [application]
@@ -29,6 +41,10 @@ _global_script_class_icons={
 config/name="Ninja Adventurer"
 run/main_scene="res://scenes/interface/menu/menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Data="*res://scripts/player/data.gd"
 
 [display]
 

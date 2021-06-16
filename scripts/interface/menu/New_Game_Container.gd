@@ -1,36 +1,36 @@
 extends Control
 class_name NewGame
 
-const CLASS_IMAGE = [
-	preload("res://NinjaAdventure/Actor/Characters/Boy/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Woman/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/BlueNinja/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/GreenNinja/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/RedNinja2/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/GrayNinja/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/DarkNinja/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/MaskedNinja/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Samurai/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/BlueSamurai/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/RedSamurai/redsamurai.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Eskimo/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/EskimoNinja/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Cavegirl/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Caveman/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/EggBoy/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/EggGirl/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Knight/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/GoldKnight/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Inspector/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Noble/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Princess/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Greenman/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Lion/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/MaskFrog/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Monk/SpriteSheet.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Skeleton/SpriteSheet.png")
+var class_image: Array = [
+	"res://NinjaAdventure/Actor/Characters/Boy/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/Woman/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/BlueNinja/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/GreenNinja/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/RedNinja2/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/GrayNinja/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/DarkNinja/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/MaskedNinja/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/Samurai/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/BlueSamurai/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/RedSamurai/redsamurai.png",
+	"res://NinjaAdventure/Actor/Characters/Eskimo/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/EskimoNinja/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/Cavegirl/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/Caveman/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/EggBoy/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/EggGirl/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/Knight/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/GoldKnight/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/Inspector/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/Noble/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/Princess/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/Greenman/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/Lion/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/MaskFrog/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/Monk/SpriteSheet.png",
+	"res://NinjaAdventure/Actor/Characters/Skeleton/SpriteSheet.png"
 ]
-	
+
 const CLASS_FACESET_IMAGE = [
 	preload("res://NinjaAdventure/Actor/Characters/Boy/Faceset.png"),
 	preload("res://NinjaAdventure/Actor/Characters/Woman/Faceset.png"),
@@ -98,9 +98,14 @@ func button_pressed(action: String) -> void:
 				index += 1
 				update_visible_character()
 				
-				
+		"Select":
+			Data.stored_data.class = class_image[index]
+			Data.save()
+			var _change_scene = get_tree().change_scene("res://scenes/scenario/cities/initial_city.tscn")
+			
+			
 func update_visible_character() -> void:
-	player_texture.texture = CLASS_IMAGE[index]
+	player_texture.texture = load(class_image[index]) #CLASS_IMAGE[index]
 	player_faceset.texture = CLASS_FACESET_IMAGE[index]
 	player_name.text = class_info[index][6]
 	var grid_size = grid.get_child_count()

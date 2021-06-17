@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "StaticBody2D",
+"class": "House",
+"language": "GDScript",
+"path": "res://scripts/cities/objects/House_Template.gd"
+}, {
 "base": "Control",
 "class": "Menu",
 "language": "GDScript",
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://scripts/player/player.gd"
 } ]
 _global_script_class_icons={
+"House": "",
 "Menu": "",
 "MessejanaCity": "",
 "NewGame": "",
@@ -55,6 +61,11 @@ window/size/test_width=1280
 window/size/test_height=704
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
 
 [physics]
 

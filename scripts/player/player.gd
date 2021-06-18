@@ -14,6 +14,7 @@ func _ready() -> void:
 	
 func _physics_process(_delta: float) -> void:
 	move()
+	attack()
 	
 	
 func move() -> void:
@@ -31,3 +32,11 @@ func move() -> void:
 		animation.travel("Idle")
 	
 	velocity = move_and_slide(velocity * speed)
+
+
+func attack() -> void:
+	if Input.is_action_just_pressed("Attack"):
+		var attack_direction = (get_global_mouse_position() - position).normalized()
+		animation_tree.set("parameters/Attack/blend_position", attack_direction)
+		animation.travel("Attack")
+		set_physics_process(false)

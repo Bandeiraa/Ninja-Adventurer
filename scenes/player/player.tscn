@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://NinjaAdventure/Actor/Characters/Greenman/SpriteSheet.png" type="Texture" id=1]
 [ext_resource path="res://scripts/player/player.gd" type="Script" id=2]
@@ -22,6 +22,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 16 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_physics_process"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 length = 0.1
@@ -37,6 +51,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 18 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_physics_process"
+} ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -54,6 +82,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 19 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_physics_process"
+} ]
+}
 
 [sub_resource type="Animation" id=5]
 length = 0.1
@@ -69,6 +111,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 17 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_physics_process"
+} ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -214,6 +270,29 @@ tracks/0/keys = {
 "values": [ 1, 5, 9, 13 ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "Attack_Left"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "Attack_Right"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "Attack_Down"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "Attack_Up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=33]
+blend_point_0/node = SubResource( 29 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 30 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 31 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 32 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id=15]
 animation = "Idle_Down"
 
@@ -264,18 +343,28 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
 [sub_resource type="AnimationNodeStateMachine" id=27]
+states/Attack/node = SubResource( 33 )
+states/Attack/position = Vector2( 468, 52 )
 states/Idle/node = SubResource( 19 )
 states/Idle/position = Vector2( 205, 52 )
 states/Move/node = SubResource( 24 )
-states/Move/position = Vector2( 205, 160 )
-transitions = [ "Idle", "Move", SubResource( 25 ), "Move", "Idle", SubResource( 26 ) ]
+states/Move/position = Vector2( 205, 191 )
+transitions = [ "Idle", "Move", SubResource( 25 ), "Move", "Idle", SubResource( 26 ), "Idle", "Attack", SubResource( 34 ), "Attack", "Idle", SubResource( 35 ), "Attack", "Move", SubResource( 36 ), "Move", "Attack", SubResource( 37 ) ]
 start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=28]
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 160, 88 )
+position = Vector2( 160, 80 )
 collision_layer = 2
 script = ExtResource( 2 )
 speed = 50
@@ -310,5 +399,6 @@ tree_root = SubResource( 27 )
 anim_player = NodePath("../Animation")
 active = true
 parameters/playback = SubResource( 28 )
+parameters/Attack/blend_position = Vector2( 0, 0 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Move/blend_position = Vector2( 0, 0 )

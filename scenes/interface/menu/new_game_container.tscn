@@ -4,18 +4,18 @@
 [ext_resource path="res://NinjaAdventure/HUD/Dialog/MenuStatusContainer.png" type="Texture" id=2]
 [ext_resource path="res://NinjaAdventure/HUD/Dialog/FacesetBox.png" type="Texture" id=3]
 [ext_resource path="res://NinjaAdventure/HUD/Arrow.png" type="Texture" id=4]
-[ext_resource path="res://NinjaAdventure/HUD/Font/Exo-Black.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://NinjaAdventure/HUD/ArrowHover.png" type="Texture" id=6]
 [ext_resource path="res://NinjaAdventure/HUD/ArrowDisabled.png" type="Texture" id=7]
 [ext_resource path="res://NinjaAdventure/HUD/ArrowPressed.png" type="Texture" id=8]
+[ext_resource path="res://NinjaAdventure/HUD/Font/monogram.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="DynamicFont" id=1]
-outline_size = 1
-font_data = ExtResource( 5 )
+size = 23
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 8
-font_data = ExtResource( 5 )
+font_data = ExtResource( 9 )
 
 [sub_resource type="Animation" id=3]
 length = 2.0
@@ -64,8 +64,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=5]
-size = 6
-font_data = ExtResource( 5 )
+size = 9
+font_data = ExtResource( 9 )
 
 [node name="New_Game_Container" type="Control"]
 anchor_right = 1.0
@@ -80,8 +80,9 @@ class_info = [ [ "Vida: 3", "Mana: 3", "Ataque: 3", "Ataque Mágico: 3", "Defesa
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -95.0
-margin_right = 95.0
-margin_bottom = 40.0
+margin_top = 38.3867
+margin_right = 112.0
+margin_bottom = 78.3867
 rect_min_size = Vector2( 95, 40 )
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -112,17 +113,23 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -37.5
-margin_top = -46.5
+margin_top = -0.0893173
 margin_right = 37.5
-margin_bottom = -26.5
+margin_bottom = 19.9107
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Buttons_Container/Select"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_top = -6.5
+margin_right = 30.0
+margin_bottom = 6.5
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Selecionar"
@@ -167,7 +174,7 @@ __meta__ = {
 }
 
 [node name="Player_Texture" type="Sprite" parent="."]
-position = Vector2( 160, 88 )
+position = Vector2( 160, 80 )
 hframes = 4
 vframes = 7
 frame = 27
@@ -237,16 +244,16 @@ margin_left = 13.0
 margin_top = -11.0
 margin_right = 112.0
 margin_bottom = 11.0
-custom_constants/vseparation = 6
+custom_constants/vseparation = 2
 custom_constants/hseparation = 12
-columns = 3
+columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Class_Health" type="Label" parent="Stats_Container/Grid"]
-margin_right = 25.0
-margin_bottom = 9.0
+margin_right = 27.0
+margin_bottom = 8.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Vida: 3"
@@ -256,9 +263,9 @@ __meta__ = {
 }
 
 [node name="Class_Mana" type="Label" parent="Stats_Container/Grid"]
-margin_left = 37.0
-margin_right = 62.0
-margin_bottom = 9.0
+margin_left = 39.0
+margin_right = 66.0
+margin_bottom = 8.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Mana: 3"
@@ -268,9 +275,9 @@ __meta__ = {
 }
 
 [node name="Class_Attack" type="Label" parent="Stats_Container/Grid"]
-margin_left = 74.0
-margin_right = 99.0
-margin_bottom = 9.0
+margin_top = 10.0
+margin_right = 27.0
+margin_bottom = 18.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Ataque: 3"
@@ -280,9 +287,10 @@ __meta__ = {
 }
 
 [node name="Class_Defense" type="Label" parent="Stats_Container/Grid"]
-margin_top = 15.0
-margin_right = 25.0
-margin_bottom = 24.0
+margin_left = 39.0
+margin_top = 10.0
+margin_right = 66.0
+margin_bottom = 18.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Ataque: 3"
@@ -292,10 +300,9 @@ __meta__ = {
 }
 
 [node name="Class_Magic_Attack" type="Label" parent="Stats_Container/Grid"]
-margin_left = 37.0
-margin_top = 15.0
-margin_right = 62.0
-margin_bottom = 24.0
+margin_top = 20.0
+margin_right = 27.0
+margin_bottom = 28.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Ataque: 3"
@@ -305,10 +312,10 @@ __meta__ = {
 }
 
 [node name="Class_Speed" type="Label" parent="Stats_Container/Grid"]
-margin_left = 74.0
-margin_top = 15.0
-margin_right = 99.0
-margin_bottom = 24.0
+margin_left = 39.0
+margin_top = 20.0
+margin_right = 66.0
+margin_bottom = 28.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Ataque: 3"

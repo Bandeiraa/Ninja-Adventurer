@@ -1,7 +1,7 @@
 extends Control
 class_name Menu
 
-onready var buttons_container: VBoxContainer = get_node("Buttons_Container")
+onready var buttons_container: VBoxContainer = get_node("Buttons_Container/Container")
 onready var new_game_container: Control = get_node("New_Game_Container")
 
 func _ready() -> void:

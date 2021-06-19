@@ -1,9 +1,14 @@
 extends KinematicBody2D
 class_name Player
 
+const INITIAL_WEAPON = preload("res://scenes/items/equipments/weapons/big_sword.tscn")
+
+var can_attack: bool = true
+
 onready var sprite: Sprite = get_node("Sprite")
 onready var animation_tree: AnimationTree = get_node("AnimationTree")
 onready var animation = animation_tree.get("parameters/playback")
+onready var timer: Timer = get_node("Timer")
 
 export(int) var speed
 
@@ -35,8 +40,24 @@ func move() -> void:
 
 
 func attack() -> void:
-	if Input.is_action_just_pressed("Attack"):
+	if Input.is_action_just_pressed("Attack") and can_attack:
 		var attack_direction = (get_global_mouse_position() - position).normalized()
 		animation_tree.set("parameters/Attack/blend_position", attack_direction)
 		animation.travel("Attack")
+		instance_weapon(attack_direction)
 		set_physics_process(false)
+		can_attack = false
+		
+		
+func instance_weapon(direction: Vector2) -> void:
+	var instanced_object = INITIAL_WEAPON.instance()
+	instanced_object.direction = direction
+	instanced_object.lifetime = 1.0
+	timer.set_wait_time(instanced_object.weapon_aspd)
+	instanced_object.global_position = position
+	get_tree().root.call_deferred("add_child", instanced_object)
+	timer.start()
+
+
+func on_timer_timeout() -> void:
+	can_attack = true

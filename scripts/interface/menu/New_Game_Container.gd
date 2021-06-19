@@ -62,6 +62,10 @@ const CLASS_FACESET_IMAGE = [
 ]
 	
 var index: int = 0
+var status_placeholder: Array = [
+	"Vida: ", "Mana: ", "Ataque: ", 
+	"Ataque Mágico: ", "Defesa: ", "Velocidade: "
+]
 
 onready var buttons_container: Control = get_node("Buttons_Container")
 onready var left: TextureButton = buttons_container.get_node("Left")
@@ -110,4 +114,4 @@ func update_visible_character() -> void:
 	player_name.text = class_info[index][6]
 	var grid_size = grid.get_child_count()
 	for status_index in grid_size:
-		grid.get_child(status_index).text = class_info[index][status_index]
+		grid.get_child(status_index).text = status_placeholder[status_index] + class_info[index][status_index]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/items/equipments/weapons/weapon_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NinjaAdventure/Items/Weapons/BigSword/Sprite.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 2.45593
+height = 5.84459
+
+[node name="Big_Sword" instance=ExtResource( 1 )]
+collision_layer = 0
+collision_mask = 0
+lifetime = 1.0
+weapon_aspd = 1.0
+velocity = 2.0
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, -2.54454 )
+shape = SubResource( 1 )

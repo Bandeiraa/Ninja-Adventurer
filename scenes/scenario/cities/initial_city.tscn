@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/scenario/tiles/city_floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/cities/messejana_city.gd" type="Script" id=2]
 [ext_resource path="res://scenes/scenario/cities/objects/house_type_1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interface/interface.tscn" type="PackedScene" id=4]
 
 [node name="Messejana_City" type="Node"]
 script = ExtResource( 2 )
@@ -20,3 +21,5 @@ position = Vector2( 256.103, 45.3019 )
 
 [node name="House_Type_3" parent="Objects" instance=ExtResource( 3 )]
 position = Vector2( 160.909, 29.155 )
+
+[node name="Interface" parent="." instance=ExtResource( 4 )]

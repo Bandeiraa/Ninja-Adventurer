@@ -8,6 +8,8 @@ radius = 1.45983
 height = 13.1473
 
 [node name="Stick" instance=ExtResource( 1 )]
+collision_layer = 0
+collision_mask = 0
 lifetime = 1.0
 weapon_aspd = 0.66
 velocity = 1.5

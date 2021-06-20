@@ -8,6 +8,8 @@ radius = 2.87723
 height = 11.5315
 
 [node name="Sword" instance=ExtResource( 1 )]
+collision_layer = 0
+collision_mask = 0
 lifetime = 1.0
 weapon_aspd = 0.83
 velocity = 2.0

@@ -1,8 +1,7 @@
 extends KinematicBody2D
 class_name Player
 
-const INITIAL_WEAPON = preload("res://scenes/items/equipments/weapons/big_sword.tscn")
-
+var initial_weapon: Resource
 var can_attack: bool = true
 
 onready var sprite: Sprite = get_node("Sprite")
@@ -14,6 +13,7 @@ export(int) var speed
 
 func _ready() -> void:
 	Data.loadData()
+	initial_weapon = load(Data.stored_data.weapon)
 	sprite.texture = load(Data.stored_data.class)
 	
 	
@@ -50,7 +50,7 @@ func attack() -> void:
 		
 		
 func instance_weapon(direction: Vector2) -> void:
-	var instanced_object = INITIAL_WEAPON.instance()
+	var instanced_object = initial_weapon.instance()
 	instanced_object.direction = direction
 	instanced_object.lifetime = 1.0
 	timer.set_wait_time(instanced_object.weapon_aspd)

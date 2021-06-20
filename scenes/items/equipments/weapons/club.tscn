@@ -8,9 +8,10 @@ radius = 2.78467
 height = 8.00082
 
 [node name="Club" instance=ExtResource( 1 )]
+collision_layer = 0
+collision_mask = 0
 lifetime = 1.0
 weapon_aspd = 0.83
-velocity = 2
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )

@@ -8,6 +8,8 @@ radius = 2.13542
 height = 4.2142
 
 [node name="Katana" instance=ExtResource( 1 )]
+collision_layer = 0
+collision_mask = 0
 lifetime = 1.0
 weapon_aspd = 0.9
 velocity = 2.2

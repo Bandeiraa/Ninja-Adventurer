@@ -31,6 +31,36 @@ var class_image: Array = [
 	"res://NinjaAdventure/Actor/Characters/Skeleton/SpriteSheet.png"
 ]
 
+var class_weapon: Array = [
+	"res://scenes/items/equipments/weapons/stick.tscn",
+	"res://scenes/items/equipments/weapons/stick.tscn",
+	"res://scenes/items/equipments/weapons/sai.tscn",
+	"res://scenes/items/equipments/weapons/sai.tscn",
+	"res://scenes/items/equipments/weapons/sai.tscn",
+	"res://scenes/items/equipments/weapons/sai.tscn",
+	"res://scenes/items/equipments/weapons/sai.tscn",
+	"res://scenes/items/equipments/weapons/sai.tscn",
+	"res://scenes/items/equipments/weapons/katana.tscn",
+	"res://scenes/items/equipments/weapons/katana.tscn",
+	"res://scenes/items/equipments/weapons/katana.tscn",
+	"res://scenes/items/equipments/weapons/fork.tscn",
+	"res://scenes/items/equipments/weapons/fork.tscn",
+	"res://scenes/items/equipments/weapons/club.tscn",
+	"res://scenes/items/equipments/weapons/club.tscn",
+	"res://scenes/items/equipments/weapons/club.tscn",
+	"res://scenes/items/equipments/weapons/club.tscn",
+	"res://scenes/items/equipments/weapons/sword.tscn",
+	"res://scenes/items/equipments/weapons/big_sword.tscn",
+	"res://scenes/items/equipments/weapons/rapier.tscn",
+	"res://scenes/items/equipments/weapons/rapier.tscn",
+	"res://scenes/items/equipments/weapons/lance.tscn",
+	"bow",
+	"res://scenes/items/equipments/weapons/hammer.tscn",
+	"res://scenes/items/equipments/weapons/whip.tscn",
+	"res://scenes/items/equipments/weapons/stick.tscn",
+	"res://scenes/items/equipments/weapons/bone.tscn"
+]
+
 const CLASS_FACESET_IMAGE = [
 	preload("res://NinjaAdventure/Actor/Characters/Boy/Faceset.png"),
 	preload("res://NinjaAdventure/Actor/Characters/Woman/Faceset.png"),
@@ -104,6 +134,7 @@ func button_pressed(action: String) -> void:
 				
 		"Select":
 			Data.stored_data.class = class_image[index]
+			Data.stored_data.weapon = class_weapon[index]
 			Data.save()
 			var _change_scene = get_tree().change_scene("res://scenes/scenario/cities/initial_city.tscn")
 			

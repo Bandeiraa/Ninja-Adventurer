@@ -1,1 +1,1 @@
-{"class":"res://NinjaAdventure/Actor/Characters/GoldKnight/SpriteSheet.png","weapon":"res://scenes/items/equipments/weapons/big_sword.tscn"}
+{"cl_name":"Sobrenatural","class":"res://NinjaAdventure/Actor/Characters/Skeleton/SpriteSheet.png","faceset":"res://NinjaAdventure/Actor/Characters/Skeleton/Faceset.png","stats":["4","0","4","0","4","3"],"weapon":"res://scenes/items/equipments/weapons/bone.tscn"}

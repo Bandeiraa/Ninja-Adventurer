@@ -1,0 +1,273 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://NinjaAdventure/HUD/Font/monogram.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://NinjaAdventure/HUD/Dialog/MenuContainer.png" type="Texture" id=2]
+[ext_resource path="res://scripts/interface/player_menu.gd" type="Script" id=3]
+[ext_resource path="res://NinjaAdventure/HUD/Dialog/StatusContainer.png" type="Texture" id=4]
+[ext_resource path="res://NinjaAdventure/Actor/Animals/Cat/Faceset.png" type="Texture" id=5]
+[ext_resource path="res://NinjaAdventure/HUD/Dialog/FacesetBox.png" type="Texture" id=6]
+[ext_resource path="res://scripts/interface/stats_interface.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 10
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 11
+font_data = ExtResource( 1 )
+
+[node name="Player_Interface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="TextureRect" parent="."]
+anchor_left = 0.781
+anchor_top = 0.5
+anchor_right = 0.781
+anchor_bottom = 0.5
+margin_left = -49.92
+margin_top = -60.0
+margin_right = -39.92
+margin_bottom = 60.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons_Container" type="VBoxContainer" parent="Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 6.0
+margin_right = -4.0
+margin_bottom = -6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stats" type="TextureButton" parent="Menu/Buttons_Container"]
+margin_right = 92.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 90, 20 )
+
+[node name="Label" type="Label" parent="Menu/Buttons_Container/Stats"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Status"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" type="TextureButton" parent="Menu/Buttons_Container"]
+margin_top = 24.0
+margin_right = 92.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 90, 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menu/Buttons_Container/Inventory"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Inventario"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="TextureButton" parent="Menu/Buttons_Container"]
+margin_top = 48.0
+margin_right = 92.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 90, 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menu/Buttons_Container/Options"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Opcoes"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stats" type="TextureRect" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -70.0
+margin_right = 100.0
+margin_bottom = 70.0
+texture = ExtResource( 4 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Faceset_Box" type="TextureRect" parent="Stats"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 46.0
+margin_bottom = 46.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Faceset" type="TextureRect" parent="Stats/Faceset_Box"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -19.0
+margin_top = -19.0
+margin_right = 19.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 38, 38 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="Control" parent="Stats"]
+margin_left = 56.0
+margin_top = 10.0
+margin_right = 112.0
+margin_bottom = 52.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats/Container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Class_Name" type="Label" parent="Stats/Container/VBoxContainer"]
+margin_right = 56.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Classe
+Pre historico"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="Label" parent="Stats/Container/VBoxContainer"]
+margin_top = 25.0
+margin_right = 56.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Nivel: 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Status_Container" type="Control" parent="Stats"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 56.0
+margin_right = -8.0
+margin_bottom = -8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="Stats/Status_Container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_right = -2.0
+custom_constants/vseparation = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Class_Health" type="Label" parent="Stats/Status_Container/Grid"]
+margin_right = 56.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 50, 10 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Vida:"
+valign = 1
+
+[node name="Class_Mana" type="Label" parent="Stats/Status_Container/Grid"]
+margin_top = 12.0
+margin_right = 56.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 50, 10 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Mana:"
+valign = 1
+
+[node name="Class_Attack" type="Label" parent="Stats/Status_Container/Grid"]
+margin_top = 24.0
+margin_right = 56.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 50, 10 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Ataque:"
+valign = 1
+
+[node name="Class_Defense" type="Label" parent="Stats/Status_Container/Grid"]
+margin_top = 36.0
+margin_right = 56.0
+margin_bottom = 46.0
+rect_min_size = Vector2( 50, 10 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Defesa:"
+valign = 1
+
+[node name="Class_Magic_Attack" type="Label" parent="Stats/Status_Container/Grid"]
+margin_top = 48.0
+margin_right = 56.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 56, 10 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Ataque Magico:"
+valign = 1
+
+[node name="Class_Velocity" type="Label" parent="Stats/Status_Container/Grid"]
+margin_top = 60.0
+margin_right = 56.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 50, 10 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Velocidade:"
+valign = 1

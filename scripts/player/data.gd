@@ -3,11 +3,15 @@ extends Node
 const FILE_NAME = "res://save_data.save"
 
 var selected_class_texture: Image
+var selected_class_faceset: Image
 var selected_weapon: String
+var selected_class_stats: Array
 
 var stored_data: Dictionary = {
 	"class": selected_class_texture,
-	"weapon": selected_weapon
+	"faceset": selected_class_faceset,
+	"weapon": selected_weapon,
+	"stats": selected_class_stats
 }
 
 func save() -> void:

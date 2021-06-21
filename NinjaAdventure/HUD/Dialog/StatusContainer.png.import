@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Faceset.png-0090cb0ef66937cc33c79d7db00336ab.stex"
+path="res://.import/StatusContainer.png-432a2a8f7050e245ebdcc54d4fa7a64a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NinjaAdventure/Actor/Animals/Cat/Faceset.png"
-dest_files=[ "res://.import/Faceset.png-0090cb0ef66937cc33c79d7db00336ab.stex" ]
+source_file="res://NinjaAdventure/HUD/Dialog/StatusContainer.png"
+dest_files=[ "res://.import/StatusContainer.png-432a2a8f7050e245ebdcc54d4fa7a64a.stex" ]
 
 [params]
 

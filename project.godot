@@ -34,10 +34,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/player/player.gd"
 }, {
-"base": "TextureRect",
-"class": "PlayerMenu",
+"base": "Control",
+"class": "PlayerInterface",
 "language": "GDScript",
 "path": "res://scripts/interface/player_menu.gd"
+}, {
+"base": "TextureRect",
+"class": "StatsInterface",
+"language": "GDScript",
+"path": "res://scripts/interface/stats_interface.gd"
 } ]
 _global_script_class_icons={
 "House": "",
@@ -45,7 +50,8 @@ _global_script_class_icons={
 "MessejanaCity": "",
 "NewGame": "",
 "Player": "",
-"PlayerMenu": ""
+"PlayerInterface": "",
+"StatsInterface": ""
 }
 
 [application]

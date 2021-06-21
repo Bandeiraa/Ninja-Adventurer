@@ -61,34 +61,34 @@ var class_weapon: Array = [
 	"res://scenes/items/equipments/weapons/bone.tscn"
 ]
 
-const CLASS_FACESET_IMAGE = [
-	preload("res://NinjaAdventure/Actor/Characters/Boy/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Woman/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/BlueNinja/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/GreenNinja/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/RedNinja2/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/GrayNinja/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/DarkNinja/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/MaskedNinja/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Samurai/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/BlueSamurai/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/RedSamurai/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Eskimo/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/EskimoNinja/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Cavegirl/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Caveman/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/EggBoy/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/EggGirl/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Knight/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/GoldKnight/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Inspector/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Noble/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Princess/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Greenman/Faceset1.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Lion/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/MaskFrog/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Monk/Faceset.png"),
-	preload("res://NinjaAdventure/Actor/Characters/Skeleton/Faceset.png")
+var class_faceset_image: Array = [
+	"res://NinjaAdventure/Actor/Characters/Boy/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/Woman/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/BlueNinja/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/GreenNinja/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/RedNinja2/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/GrayNinja/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/DarkNinja/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/MaskedNinja/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/Samurai/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/BlueSamurai/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/RedSamurai/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/Eskimo/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/EskimoNinja/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/Cavegirl/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/Caveman/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/EggBoy/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/EggGirl/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/Knight/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/GoldKnight/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/Inspector/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/Noble/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/Princess/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/Greenman/Faceset1.png",
+	"res://NinjaAdventure/Actor/Characters/Lion/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/MaskFrog/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/Monk/Faceset.png",
+	"res://NinjaAdventure/Actor/Characters/Skeleton/Faceset.png"
 ]
 	
 var index: int = 0
@@ -135,13 +135,19 @@ func button_pressed(action: String) -> void:
 		"Select":
 			Data.stored_data.class = class_image[index]
 			Data.stored_data.weapon = class_weapon[index]
+			Data.stored_data.faceset = class_faceset_image[index]
+			Data.stored_data.cl_name = class_info[index].back()
+			
+			for stat in grid.get_child_count():
+				Data.stored_data.stats.append(class_info[index][stat])
+				
 			Data.save()
 			var _change_scene = get_tree().change_scene("res://scenes/scenario/cities/initial_city.tscn")
 			
 			
 func update_visible_character() -> void:
-	player_texture.texture = load(class_image[index]) #CLASS_IMAGE[index]
-	player_faceset.texture = CLASS_FACESET_IMAGE[index]
+	player_texture.texture = load(class_image[index]) 
+	player_faceset.texture = load(class_faceset_image[index])
 	player_name.text = class_info[index][6]
 	var grid_size = grid.get_child_count()
 	for status_index in grid_size:

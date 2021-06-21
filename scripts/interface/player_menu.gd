@@ -1,7 +1,8 @@
-extends TextureRect
-class_name PlayerMenu
+extends Control
+class_name PlayerInterface
 
-onready var buttons_container: VBoxContainer = get_node("Buttons_Container")
+onready var buttons_container: VBoxContainer = get_node("Menu/Buttons_Container")
+onready var stats_container: TextureRect = get_node("Stats")
 
 func _ready() -> void:
 	for button in buttons_container.get_children():
@@ -11,18 +12,10 @@ func _ready() -> void:
 func on_button_pressed(type: String) -> void:
 	match type:
 		"Stats":
-			pass
+			stats_container.visible = !stats_container.visible
 			
 		"Inventory":
 			pass
 			
 		"Options":
 			pass
-			
-		"Quit":
-			hide()
-
-
-func _process(_delta: float):
-	if Input.is_action_just_pressed("Menu"):
-		visible = !visible
